@@ -1,0 +1,66 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<body>
+
+<h2>Using a Relative File Path</h2>
+
+ 
+<img class="logo" src="http://localhost:3000/images/images1.jpg" alt="My_Logo">
+<img class="logo" src="http://localhost:3000/images/images5.jpg" alt="My_Logo">
+<img class="nature" src="http://localhost:3000/images/images1.jpg">
+<img class="nature" src="http://localhost:3000/images/images5.jpg">
+<img class="nature" src="http://localhost:3000/images/picture.jpg">
+
+<button onclick="myShow.previous()">Previous</button>
+<button onclick="myShow.next()">Next</button>
+
+<script>
+myShow = w3.slideshow(".nature", 0);
+
+
+//w3.slideshow(".nature");
+</script>
+
+<script>
+ 
+
+
+
+</script>
+
+<h2>Vue.js</h2>
+ 
+
+<div id="app">
+  <ul>
+    <li v-for="x in todos">
+      {{ x.text }}
+    </li>
+  </ul>
+</div>
+
+<script>
+myObject = new Vue({
+  el: '#app',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue.js' },
+      { text: 'Learn Vue.js' },
+      { text: 'Learn Vue.js' },
+      { text: 'Learn Vue.js' },
+      { text: 'Learn Vue.js' },
+       { text: 'Learn Vue.js' },
+       { text: 'Learn Vue.js' },
+       { text: 'Learn Vue.js' },
+        { text: 'Learn Vue.js' },
+             
+      { text: 'Build Something Awesomesss' }
+    ]
+  }
+})
+</script>
+
+</body>
+</html>

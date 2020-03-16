@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<form action="/login" method="post">
+    <input type="text" name="username" placeholder"Username"/>
+    <input type="password" name="password" placeholder="Password"/>
+    <input type="submit" value="Submit"/>
+</form>
+
+
+
+
+
+<body>
+
+<div id="app">
+  <h1>{{ message }}</h1>
+</div>
+
+<script>
+var myObject = new Vue({
+  el: '#app',
+  data: {message: 'Hello Vue!'}
+})
+</script>
+
+<h2>Vue.js</h2>
+ 
+<button onclick="myFunction()">Click Me!</button>
+<button onclick="myFunctionJson()">Send Json</button>
+ 
+
+<script>
+
+var vm = new Vue({
+    mqtt: {
+      'param/+/+/test': function(val) {
+        console.log('param/+/+/test')
+      },
+      'param/#': function(val) {
+        console.log('param/#')
+      },
+      'param/param/param/test': function(val) {
+        console.log('param/param/param/test')
+      },
+      'template/+' (data, topic) {
+        if (topic.split('/').pop() === '12345') {
+          console.log('topic:', 'template/12345')
+        }
+      },
+      'template/+/param/param' (data, topic) {
+        if (topic.split('/')[1] === '12345') {
+          console.log('topic:', 'template/12345/param/param')
+        }
+      }
+    },
+    methods: {
+      clickSub: function(val) {
+          this.$mqtt.subscribe('param/param/param/test')
+      },
+      clickPub: function(val) {
+          this.$mqtt.publish('param/param/param/test', 'message')
+      }
+    }
+  })
+ 
+  
+function myFunctionJson() {
+    if (myObject.message=="John Doe")
+    {
+        myObject.message = "Chainarong";
+    }else{
+          myObject.message = "John Doe";
+    }
+}
+
+function myFunction() {
+    if (myObject.message=="John Doe")
+    {
+        myObject.message = "Chainarong";
+    }else{
+          myObject.message = "John Doe";
+    }
+}
+</script>
+
+<div id="app2">
+    <li>
+      <li v-for="x in todos">
+        {{ x.text }}
+      </li>
+    </li>
+  </div>
+  
+  <script>
+  myObjects = new Vue({
+    el: '#app2',
+    data: {
+      todos: [
+        { text: 'Learn JavaScript' },
+        { text: 'Learn Vue.js' },
+        { text: 'Build Something Awesome' }
+      ]
+    }
+  })
+  </script>
+
+
+
+</body>
+</html>
